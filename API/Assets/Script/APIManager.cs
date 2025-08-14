@@ -1,5 +1,5 @@
 using System.Collections;
-using System; 
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,26 +12,26 @@ public class APIManager : MonoBehaviour
 
     private string rickAndMortyApiUrl = "https://rickandmortyapi.com/api/character/";
 
-    public TextMeshProUGUI[] cardNameTexts; 
-    public TextMeshProUGUI[] cardSpeciesTexts; 
-    public Image[] cardImages; 
-    public TMP_Dropdown userDropDown; 
+    public TextMeshProUGUI[] cardNameTexts;
+    public TextMeshProUGUI[] cardSpeciesTexts;
+    public Image[] cardImages;
+    public TMP_Dropdown userDropDown;
     private int currentUserId = -1;
 
     void Start()
     {
         InitializeDropdown();
-        ClearCards(); 
+        ClearCards();
     }
 
     private void InitializeDropdown()
     {
         userDropDown.ClearOptions();
-        List<string> userNames = new List<string> { "Select a User", "Rayne", "Abel", "Lance"};
+        List<string> userNames = new List<string> { "Select a User", "Mortadelo", "Filemón", "Jimmy" };
         userDropDown.AddOptions(userNames);
-        userDropDown.value = 0; 
+        userDropDown.value = 0;
         userDropDown.onValueChanged.AddListener(SwitchUser);
-    }   
+    }
 
     private void ClearCards()
     {
@@ -66,7 +66,7 @@ public class APIManager : MonoBehaviour
                 Debug.Log(userData.name);
                 Debug.Log(string.Join(", ", userData.deck));
 
-                ClearCards(); 
+                ClearCards();
 
                 for (int i = 0; i < userData.deck.Length; i++)
                 {
@@ -113,7 +113,7 @@ public class APIManager : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(imageUrl))
         {
-            yield return webRequest.SendWebRequest(); 
+            yield return webRequest.SendWebRequest();
 
             if (webRequest.result == UnityWebRequest.Result.ConnectionError || webRequest.result == UnityWebRequest.Result.ProtocolError)
             {
@@ -129,13 +129,13 @@ public class APIManager : MonoBehaviour
 
     public void SwitchUser(int index)
     {
-       if (index == 0) 
+        if (index == 0)
         {
             ClearCards();
             currentUserId = -1;
             return;
         }
-        currentUserId = index; 
+        currentUserId = index;
         FetchPlayerDeck(currentUserId);
     }
 
