@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Player 1",
+      "deck": [1, 2, 3, 4, 5]
+    },
+    {
+      "id": 2,
+      "name": "Player 2",
+      "deck": [11, 22, 33, 44, 55]
+    }, 
+    {
+      "id": 3,
+      "name": "Player 3",
+      "deck": [20, 40, 60, 80, 100]
+    }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "name": "Card 1"
+    },
+    {
+      "id": 2,
+      "name": "Card 2"
+    },
+    {
+      "id": 3,
+      "name": "Card 3"
+    }
+  ]
+}
